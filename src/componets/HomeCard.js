@@ -1,5 +1,5 @@
 import React from 'react';
-import { EditOutlined, EllipsisOutlined, SettingOutlined, LikeOutlined, CommentOutlined } from '@ant-design/icons';
+import { LikeOutlined, CommentOutlined } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
 import '../styles/HomeCard.css';
 import Image from  '../asstes/images/phpto1.jpg'
