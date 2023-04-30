@@ -24,7 +24,6 @@ function HomeCard() {
   >
     <Meta
       avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
-      title="Title"
       description="This is the description"
     />
   </Card>
