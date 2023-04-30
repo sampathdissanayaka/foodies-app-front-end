@@ -1,8 +1,9 @@
+import Navbar from '../componets/Navbar';
 import { Form, Input, Button } from 'antd';
-import Navbar from '../componets/Navbar'
-import '../styles/Memory.css'
 import { useNavigate } from 'react-router-dom';
 import ImageUpload from '../componets/ImageUpload';
+import '../styles/Memory.css'
+
 
 function Memory() {
 
@@ -16,10 +17,16 @@ function Memory() {
 
   return (
     <div>
-      <Navbar/>
-          <Form className="login-form" onFinish={onFinish}>
-        <h2>Share Your Memories</h2>
+        <Navbar/>
+            <Form className="login-form" onFinish={onFinish}>
+        <h2>Share Your Events</h2>
       <Form.Item label="Description" name="description">
+        <Input />
+      </Form.Item>
+      <Form.Item label="Place" name="description">
+        <Input />
+      </Form.Item>
+      <Form.Item label="Date" name="description">
         <Input />
       </Form.Item>
       <Form.Item label="Image Upload" name="description">
@@ -31,7 +38,6 @@ function Memory() {
         </Button>
       </Form.Item>
     </Form>
-
     </div>
 
   );

@@ -15,6 +15,7 @@
     padding: 0 20px;
     margin: 0;
     color: #333;
+    margin-left: auto;
   }
   
   .navbar-item:hover {
