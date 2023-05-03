@@ -1,25 +1,43 @@
+// import { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import { signInWithGoogle } from "../firebase";
-
+import axios from 'axios';
 import { GoogleOutlined } from '@ant-design/icons';
 import '../styles/SignIn.css'
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 function SignIn() {
-
+  // const [data, setData] = useState([]);
   const navigate = useNavigate();
 
   const onFinish = (values) => {
-    navigate('/');
+    // navigate('/');
     console.log('Received values of form: ', values);
+    postData(values.username,values.password);
   };
 
+  const postData = (username,password) => {
+    axios.post(`http://localhost:8081/api/mn/user/login`, {
+      userName: username,
+      password: password 
+    }).then((response) => {
+      // alert(response);
+      setLocalStorage(response.userId);
+      navigate('/');
+  }).catch(error => {
+    alert(error);
+  })
+}
+
+const setLocalStorage = (data) => {
+  localStorage.setItem('id', JSON.stringify(data));
+}
 
   return (
     <Form className="login-form" onFinish={onFinish}>
         <h2>FoodiesHub</h2>
-      <Form.Item label="Email" name="username">
+      <Form.Item label="User Name" name="username">
         <Input />
       </Form.Item>
       <Form.Item label="Password" name="password">
