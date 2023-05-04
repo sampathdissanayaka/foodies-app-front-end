@@ -18,13 +18,20 @@ function SignIn() {
       email: values.email
      };
 
-      axios.post(`http://localhost:8081/api/mn/user/register`, reqBody).then((response) => {
-        setLocalStorage(response.userId);
-        navigate('/');
-        // alert(response);
-    }).catch(error => {
-      alert(error);
-    });
+    //   axios.post(`http://localhost:8081/api/mn/user/register`, reqBody).then((response) => {
+    //     setLocalStorage(response.userId);
+    //     navigate('/');
+    // }).catch(error => {
+    //   alert(error);
+    // });
+
+  fetch('http://localhost:8081/api/mn/user/register', reqBody)
+  .then((response) => {
+    setLocalStorage(response.userId);
+    navigate('/');
+}).catch(error => {
+  alert(error);
+});
   };
 
 const setLocalStorage = (data) => {
