@@ -14,7 +14,11 @@ function SignIn() {
 
     const reqBody = { 
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Access-Control-Request-Method': 'OPTIONS',
+        'Access-Control-Request-Headers': 'Content-Type, Authorization',
+        'Content-Type': 'application/json',
+       },
       body: JSON.stringify({       
         userName: values.username,
         password: values.password,
