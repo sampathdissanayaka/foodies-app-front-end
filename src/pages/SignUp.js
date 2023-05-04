@@ -13,9 +13,12 @@ function SignIn() {
     console.log('Received values of form: ', values);
 
     const reqBody = { 
-      userName: values.username,
-      password: values.password,
-      email: values.email
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({       
+        userName: values.username,
+        password: values.password,
+        email: values.email })
      };
 
     //   axios.post(`http://localhost:8081/api/mn/user/register`, reqBody).then((response) => {
