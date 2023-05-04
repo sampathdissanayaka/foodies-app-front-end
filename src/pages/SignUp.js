@@ -11,22 +11,21 @@ function SignIn() {
 
   const onFinish = (values) => {
     console.log('Received values of form: ', values);
-    postData(values.username,values.password,values.email);
-  };
 
-  const postData = (username,password,email) => {
-    axios.post(`http://localhost:8081/api/mn/user/register`, {
-      userName: username,
-      password: password,
-      email: email
-    }).then((response) => {
-      setLocalStorage(response.userId);
-      navigate('/');
-      // alert(response);
-  }).catch(error => {
-    alert(error);
-  });
-}
+    const reqBody = { 
+      userName: values.username,
+      password: values.password,
+      email: values.email
+     };
+
+      axios.post(`http://localhost:8081/api/mn/user/register`, reqBody).then((response) => {
+        setLocalStorage(response.userId);
+        navigate('/');
+        // alert(response);
+    }).catch(error => {
+      alert(error);
+    });
+  };
 
 const setLocalStorage = (data) => {
   localStorage.setItem('id', JSON.stringify(data));
