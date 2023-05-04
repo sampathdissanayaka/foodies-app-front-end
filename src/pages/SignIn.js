@@ -14,21 +14,20 @@ function SignIn() {
   const onFinish = (values) => {
     // navigate('/');
     console.log('Received values of form: ', values);
-    postData(values.username,values.password);
-  };
 
-  const postData = (username,password) => {
-    axios.post(`http://localhost:8081/api/mn/user/login`, {
-      userName: username,
-      password: password 
-    }).then((response) => {
+    const reqBody = {
+      userName: values.username,
+      password: values.password 
+    }
+
+    axios.post(`http://localhost:8081/api/mn/user/login`, reqBody).then((response) => {
       // alert(response);
       setLocalStorage(response.userId);
       navigate('/');
   }).catch(error => {
     alert(error);
   })
-}
+  };
 
 const setLocalStorage = (data) => {
   localStorage.setItem('id', JSON.stringify(data));
